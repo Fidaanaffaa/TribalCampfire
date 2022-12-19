@@ -38,6 +38,7 @@ public class Conductor : MonoBehaviour
     //an AudioSource attached to this GameObject that will play the music.
     [SerializeField] private AudioSource musicSource;
 
+    [SerializeField] private CueManager cueManager;
 
 
     
@@ -67,6 +68,8 @@ public class Conductor : MonoBehaviour
         songPositionInBeats = songPosition / secPerBeat;
 
         float numBeat = songPositionInBeats % 4; // For 4/4 beats
+        cueManager.UpdateBeat(numBeat);
+        cueManager.SetBeat(numBeat);
 
 
 

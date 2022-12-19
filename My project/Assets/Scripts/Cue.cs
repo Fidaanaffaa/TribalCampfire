@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeatMovePoint : MonoBehaviour
+public class Cue : MonoBehaviour
 {
     // [SerializeField] private GameObject pivot;
     [SerializeField] private Vector3 finalDestination = new Vector3(-0.003922999f, -3.831109f, -0.1788127f);
     [SerializeField] private Vector3 StartPosition = new Vector3(7.1f, -3.831109f);
 
-    private float duration = 2; // 3 Beats
+    [SerializeField] private float duration = 2; // 3 Beats
     private float timeElapsed = 0;
     private float beats = 0;
     // Start is called before the first frame update
@@ -49,5 +49,14 @@ public class BeatMovePoint : MonoBehaviour
     {
         StartPosition = newStart;
         transform.position = newStart;
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Indicator")
+        {
+            Debug.Log("Yes!");
+        }
+        Debug.Log("Trigger");
     }
 }
