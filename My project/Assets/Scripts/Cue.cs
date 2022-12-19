@@ -51,12 +51,13 @@ public class Cue : MonoBehaviour
         transform.position = newStart;
     }
 
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Indicator")
         {
             Debug.Log("Yes!");
         }
-        Debug.Log("Trigger");
+        //Debug.Log("Trigger");
     }
 }
