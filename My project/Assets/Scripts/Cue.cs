@@ -56,7 +56,7 @@ public class Cue : MonoBehaviour
     {
         if (collider.gameObject.tag == "Indicator")
         {
-            Debug.Log("Yes!");
+            //Debug.Log("Yes!");
         }
         //Debug.Log("Trigger");
     }
