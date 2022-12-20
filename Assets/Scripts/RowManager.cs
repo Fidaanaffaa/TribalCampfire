@@ -29,7 +29,7 @@ public class RowManager : MonoBehaviour
         cubes = new GameObject[8] {cube0,cube1,cube2,cube3,cube4,cube5,cube6,cube7}; /// currently this is an ugly bug fix, ither wise it is not init.
 
         
-        Debug.Log("setColorTo was called!");
+        // Debug.Log("setColorTo was called!");
 
         cubes[index].GetComponent<cubeManager>().setColor(Red,Green,Blue,Alpha);
     }
@@ -39,7 +39,7 @@ public class RowManager : MonoBehaviour
     {
         cubes = new GameObject[8] {cube0,cube1,cube2,cube3,cube4,cube5,cube6,cube7}; /// currently this is an ugly bug fix, ither wise it is not init.
 
-        Debug.Log("setColorToALL was called!");
+        // Debug.Log("setColorToALL was called!");
         foreach (var cubics in cubes)
         { 
             cubics.GetComponent<cubeManager>().setColor(Red,Green,Blue,Alpha);
@@ -50,7 +50,7 @@ public class RowManager : MonoBehaviour
         /// Will set the same color to all the indexs cubes in the row 
     {
         cubes = new GameObject[8] {cube0,cube1,cube2,cube3,cube4,cube5,cube6,cube7}; /// currently this is an ugly bug fix, ither wise it is not init.
-        Debug.Log("setColorToBatch was called!");
+        // Debug.Log("setColorToBatch was called!");
 
         foreach (var idx in indexes)
         { 
@@ -64,7 +64,7 @@ public class RowManager : MonoBehaviour
     {
         
         cubes = new GameObject[8] {cube0,cube1,cube2,cube3,cube4,cube5,cube6,cube7}; /// currently this is an ugly bug fix, ither wise it is not init.
-        Debug.Log("setColorToBatch was called!");
+        // Debug.Log("setColorToBatch was called!");
 
         foreach (var idx in indexes)
         { 
@@ -77,7 +77,7 @@ public class RowManager : MonoBehaviour
         /// Will set the same color to all the indexs cubes in the row 
     {
         cubes = new GameObject[8] {cube0,cube1,cube2,cube3,cube4,cube5,cube6,cube7}; /// currently this is an ugly bug fix, ither wise it is not init.
-        Debug.Log("setColorToBatch was called!");
+        // Debug.Log("setColorToBatch was called!");
 
         foreach (var idx in indexes)
         { 

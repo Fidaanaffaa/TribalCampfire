@@ -41,7 +41,7 @@ public class BoardManager : MonoBehaviour
      
         // If the next update is reached
         if(Time.time>=nextUpdate){
-            Debug.Log(Time.time+">="+nextUpdate);
+            // Debug.Log(Time.time+">="+nextUpdate);
             // Change the next update (current second+0.5)
             nextUpdate=(double) Mathf.FloorToInt(Time.time) + 1;
             // Call your fonction
@@ -57,10 +57,10 @@ public class BoardManager : MonoBehaviour
         int lastIndex = currentSquareIdx; 
             
         currentSquareIdx = (currentSquareIdx + 1) % squareCoords.Length;
-        Debug.Log("Calling Next");
+        // Debug.Log("Calling Next");
         (int x, int y) =  squareCoords[currentSquareIdx];
         
-        Debug.Log(x.ToString()+","+y.ToString());
+        // Debug.Log(x.ToString()+","+y.ToString());
         
         // todo add if is player than green
         if (playersCoords.Contains(new Tuple<int, int>(x,y)))
