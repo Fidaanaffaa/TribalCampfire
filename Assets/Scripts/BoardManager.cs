@@ -108,6 +108,11 @@ public class BoardManager : MonoBehaviour
         
     }
     
+
+    public void PlayerDown()
+    {
+        // For loop, finding the player that's down.
+    }
     // // Update is called once per frame
     // void Update()
     // {

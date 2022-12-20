@@ -150,9 +150,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0424a21d759de03459949dd9fe46e7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 214074716}
   defaultColor: {r: 1, g: 1, b: 1, a: 0}
   inputKey: 260
+--- !u!212 &214074716 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3795740367514720072, guid: c602ec4364355df43bc71747068ef1aa, type: 3}
+  m_PrefabInstance: {fileID: 6158100765735322130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &271762359 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 732099133693108203, guid: c602ec4364355df43bc71747068ef1aa, type: 3}
@@ -483,9 +488,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0424a21d759de03459949dd9fe46e7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 1619999854}
   defaultColor: {r: 1, g: 1, b: 1, a: 0}
   inputKey: 259
+--- !u!212 &1619999854 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5768434120644777674, guid: c602ec4364355df43bc71747068ef1aa, type: 3}
+  m_PrefabInstance: {fileID: 6158100765735322130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &1646697347 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7102077974686191917, guid: c602ec4364355df43bc71747068ef1aa, type: 3}
@@ -937,7 +947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0424a21d759de03459949dd9fe46e7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 6158100765735322135}
   defaultColor: {r: 1, g: 1, b: 1, a: 0}
   inputKey: 258
 --- !u!114 &6158100765735322134
@@ -952,6 +962,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0424a21d759de03459949dd9fe46e7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 1646697347}
   defaultColor: {r: 1, g: 1, b: 1, a: 0}
   inputKey: 257
+--- !u!212 &6158100765735322135 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 445596671777099951, guid: c602ec4364355df43bc71747068ef1aa, type: 3}
+  m_PrefabInstance: {fileID: 6158100765735322130}
+  m_PrefabAsset: {fileID: 0}

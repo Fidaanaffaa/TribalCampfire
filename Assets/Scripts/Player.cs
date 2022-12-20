@@ -4,7 +4,8 @@ using UnityEngine;
 public class Player : cubeManager
 {
     [SerializeField] private UnityEngine.KeyCode inputKey;
-
+    [SerializeField] private BoardManager OurBoard;
+    private bool pressed = false;
     
     // Start is called before the first frame update
     void Start()
@@ -15,19 +16,39 @@ public class Player : cubeManager
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(inputKey))
+        
+        if (Input.GetKeyDown(inputKey))
         {
             if(sprite.color == GREEN && isPlayer)
             {
-                Debug.Log("Success!");
+                pressed = false;
             }
             else
             {
-                isPlayer = false;
-                setDeafultColor(WHITE[0], WHITE[1], WHITE[2], WHITE[3]);
-                setColor(WHITE[0], WHITE[1], WHITE[2], WHITE[3]);
+                PlayerEliminated();
             }
         }
 
+    }
+
+    public void PlayerVunerable()
+    {
+        pressed = true;
+    }
+
+    public void PlayerNotVunerable()
+    {
+        if (pressed)
+        {
+            PlayerEliminated();
+        }
+    }
+    void PlayerEliminated()
+    {
+        isPlayer = false;
+        setDeafultColor(WHITE[0], WHITE[1], WHITE[2], WHITE[3]);
+        setColor(WHITE[0], WHITE[1], WHITE[2], WHITE[3]);
+        OurBoard.PlayerDown();
+        // TODO - Add message to board
     }
 }
