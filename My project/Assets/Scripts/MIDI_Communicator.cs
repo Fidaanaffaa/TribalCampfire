@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using Midi;
+//using Midi;
 
 public class MIDI_Communicator : MonoBehaviour
 {
-    private InputDevice LaunchPadIn;
-    private OutputDevice LaunchPadOut;
-    private Clock clock = new Clock(120);
+    //private InputDevice LaunchPadIn;
+    //private OutputDevice LaunchPadOut;
+    //private Clock clock = new Clock(120);
     bool trying = false;
     // Start is called before the first frame update
     void Start()
