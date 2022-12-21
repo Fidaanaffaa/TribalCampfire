@@ -5,16 +5,20 @@ using UnityEngine;
 
 public class BoardManager : MonoBehaviour
 {
-    [SerializeField] public GameObject row1;  
-    [SerializeField] public GameObject row2;  
-    [SerializeField] public GameObject row3;  
-    [SerializeField] public GameObject row4;  
-    [SerializeField] public GameObject row5;  
-    [SerializeField] public GameObject row6;  
-    [SerializeField] public GameObject row7;  
-    [SerializeField] public GameObject row8;  
+    //[SerializeField] public GameObject row1;  
+    //[SerializeField] public GameObject row2;  
+    //[SerializeField] public GameObject row3;  
+    //[SerializeField] public GameObject row4;  
+    //[SerializeField] public GameObject row5;  
+    //[SerializeField] public GameObject row6;  
+    //[SerializeField] public GameObject row7;  
+    //[SerializeField] public GameObject row8;  
+    //[SerializeField] public RowManager[] rows2;
 
-    [SerializeField] public GameObject[]  rows;
+    [SerializeField] public List<RowManager>  rows;
+
+
+
 
     public HashSet<Tuple<int, int>> playersCoords = new HashSet<Tuple<int, int>> 
         {new Tuple<int, int>(0, 0),
@@ -29,8 +33,12 @@ public class BoardManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        foreach (var row in GetComponentsInChildren<RowManager>()) // Adds all the children of the Board (only 8, not the grandchildren)
+        {
+            rows.Add(row);
+        }
         currentSquareIdx = 0;
-        rows = new GameObject[8] {row1, row2, row3, row4, row5, row6, row7, row8};
+        //rows = new GameObject[8] {row1, row2, row3, row4, row5, row6, row7, row8};
         initPlayersPositionsColor();
 
         //colorAllCube(); // mostly for testing popurses, color everything in red, 
@@ -65,11 +73,15 @@ public class BoardManager : MonoBehaviour
         // todo add if is player than green
         if (playersCoords.Contains(new Tuple<int, int>(x,y)))
         {
-            rows[x].GetComponent<RowManager>().setColorToBatch(new int[]{y}, 0, 1, 0, 1);
+            //rows[x].GetComponent<RowManager>().setColorToBatch(new int[]{y}, 0, 1, 0, 1);
+            rows[x].setColorToBatch(new int[] { y }, 0, 1, 0, 1);
+
         }
         else
         {
-            rows[x].GetComponent<RowManager>().setColorToBatch(new int[]{y}, 1, 1, 0, 1);
+            //            rows[x].GetComponent<RowManager>().setColorToBatch(new int[]{y}, 1, 1, 0, 1);
+
+            rows[x].setColorToBatch(new int[]{y}, 1, 1, 0, 1);
         }
         
         
@@ -77,33 +89,44 @@ public class BoardManager : MonoBehaviour
         
         
         (x, y) =  squareCoords[lastIndex];
-        rows[x].GetComponent<RowManager>().setColorBaclToDeafultColorTosBatch(new int[]{y});
+        //         rows[x].GetComponent<RowManager>().setColorBaclToDeafultColorTosBatch(new int[]{y});
+
+        rows[x].setColorBaclToDeafultColorTosBatch(new int[]{y});
         
     }
 
     public void initPlayersPositionsColor()
     // currently support only 4 players. later we will figure it out
     {
-        rows[0].GetComponent<RowManager>().setDeafultColorToBatch(new int[]{0,7}, 1, 0, 0, 1);
-        
-        rows[7].GetComponent<RowManager>().setDeafultColorToBatch(new int[]{0,7}, 1, 0, 0, 1);
-        
-        
+        //rows[0].GetComponent<RowManager>().setDeafultColorToBatch(new int[]{0,7}, 1, 0, 0, 1);
+
+        //rows[7].GetComponent<RowManager>().setDeafultColorToBatch(new int[]{0,7}, 1, 0, 0, 1);
+        rows[0].setDeafultColorToBatch(new int[] { 0, 7 }, 1, 0, 0, 1);
+
+        rows[7].setDeafultColorToBatch(new int[] { 0, 7 }, 1, 0, 0, 1);
+
+
     }
-    
-    
+
+
     public void colorAllCube()
         // currently support only 4 players. later we will figure it out
     {
-        rows[0].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
-        rows[1].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
-        rows[2].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
-        rows[3].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
-        rows[4].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
-        rows[5].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
-        rows[6].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
-        rows[7].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
+
+        for (int i = 0; i < 8; i++) // Only 8 rows, should make modular?
+        {
+            rows[i].setColorToALL(1, 0, 0, 1);
+        }
+        //rows[0].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
+        //rows[1].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
+        //rows[2].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
+        //rows[3].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
+        //rows[4].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
+        //rows[5].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
+        //rows[6].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
+        //rows[7].GetComponent<RowManager>().setColorToALL(1, 0, 0, 1);
         
+
         
         
     }
@@ -112,6 +135,7 @@ public class BoardManager : MonoBehaviour
     public void PlayerDown()
     {
         // For loop, finding the player that's down.
+        Debug.Log("PlayerDown");
     }
     // // Update is called once per frame
     // void Update()

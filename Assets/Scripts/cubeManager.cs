@@ -9,20 +9,27 @@ public class cubeManager : MonoBehaviour
     protected Color YELLOW = new Color(1,1,0,1);
     public SpriteRenderer sprite;
     [SerializeField] public Color defaultColor;
-     protected bool isPlayer = false;
-   
+    protected bool isPlayer = false;
+    private Player player;
     void Awake()
     {
+        foreach (var playa in GetComponentsInChildren<Player>()) // Adds all the children of the cube (only one)
+        {
+            player = playa;
+        }
         sprite = GetComponent<SpriteRenderer>();
     }
 
     public void  setColor(double Red, double Green,double  Blue, double Alpha)
     {
         Color temp = new Color((float)Red, (float)Green, (float)Blue, (float)Alpha);
-        // Debug.Log("Cube  setColor() ");
-        if(!isPlayer && temp == GREEN)
+        if (isPlayer && temp == GREEN) // Indicates the player that s/he is vulnerable
         {
-            sprite.color = new Color(YELLOW[0], YELLOW[1], YELLOW[2], YELLOW[3]);
+            player.PlayerVunerable();
+        }
+        if (!isPlayer && temp == GREEN)
+        {
+            sprite.color = new Color(YELLOW[0], YELLOW[1], YELLOW[2], YELLOW[3]); // If not player
             return;
         }
         sprite.color = new Color((float) Red, (float)Green, (float)Blue,(float) Alpha);
@@ -32,6 +39,10 @@ public class cubeManager : MonoBehaviour
     public void  setColorBackToDeafultColor()
     {
         // Debug.Log("Cube setColorBackToDeafultColor() ");
+        if (isPlayer)
+        {
+            player.PlayerNotVunerable();
+        }
         sprite.color = defaultColor;
 
     }

@@ -17,7 +17,7 @@ public class Player : cubeManager
     void Update()
     {
         
-        if (Input.GetKeyDown(inputKey))
+        if (Input.GetKeyDown(inputKey) && isPlayer) // Added this to fix a bug
         {
             if(sprite.color == GREEN && isPlayer)
             {
