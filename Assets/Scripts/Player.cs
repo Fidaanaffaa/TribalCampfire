@@ -22,6 +22,7 @@ public class Player : cubeManager
             if(sprite.color == GREEN && isPlayer)
             {
                 pressed = false;
+                OurBoard.PlayerSuccess();
             }
             else
             {
